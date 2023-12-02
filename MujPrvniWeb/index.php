@@ -1,6 +1,8 @@
 <?php
     mb_internal_encoding('UTF-8');
     $hlaska = '';
+    if(isset($_GET['uspech']))
+        $hlaska = 'Email byl úspěšně odeslán, brzy vám odpovíme';
     if($_POST) { //v poli _POST něco je
         if(isset($_POST['jmeno']) && $_POST['jmeno'] &&
             isset($_POST['email']) && $_POST['email'] &&
@@ -16,6 +18,8 @@
             $uspech = mb_send_mail($adresa, $predmet, $_POST['zprava'], $hlavicka);
             if ($uspech) {
                 $hlaska = 'Email byl úspěšně odeslán, brzy vám odpovíme.';
+                header('Location: index.php?stranka=kontakt&uspech=ano');
+                exit;
             } else
                 $hlaska = 'Email se nepodařilo odeslat. Zkontrolujte adresu.';
         }
