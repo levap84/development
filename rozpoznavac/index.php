@@ -10,6 +10,15 @@
         'okurka',
         'paprika'
     );
+
+    $fotky = array(
+        'ananas' => '<img src="pictures/ananas.jpeg" alt="ananas">',
+        'citrón' => '<img src="pictures/citron.jpeg" alt="citron">',
+        'květák' => '<img src="pictures/kvetak.jpeg" alt="kvetak">',
+        'okurka' => '<img src="pictures/okurka.jpeg" alt="okurka">',
+        'paprika' => '<img src="pictures/paprika.jpeg" alt="paprika">',
+        'pomeranč' => '<img src="pictures/pomeranc.jpeg" alt="pomeranc">'
+    );
     
     $jidlo = array('ovoce' => $ovoce, 'zelenina' => $zelenina);
     $hlaska = "";
@@ -24,11 +33,9 @@ if($_POST)
 
         foreach($jidlo as $key => $value)
         {
-            foreach($value as $x => $polozka)
-            {
-                if ($polozka == $plodina)
-                    $vysledek = $key;
-            }
+            $nalez = in_array($plodina, $value);
+            if($nalez)
+                $vysledek = $key;
         }
 
         $hlaska = ($vysledek) ? $plodina . ' je ' . $vysledek : $plodina . ' nemám zařazeno v seznamu plodin'; 
@@ -53,6 +60,10 @@ if($_POST)
 <body>
 
     <h1>Rozpoznávač ovoce a zeleniny</h1>
+    <?php
+    if($vysledek)
+        echo($fotky[$plodina]);
+    ?>
     <form method="post">
         <label for="nazevPlodiny">Zadej název plodiny</label><br>
         <input type="text" name="plodina" id="nazevPlodiny"><br>
