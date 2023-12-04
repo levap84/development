@@ -17,10 +17,21 @@
             echo($i . ' ' . $lahev_name . ' stojí na stole a jedna láhev spadne.<br>' );
 
         }
-
-
+    
 
     ?>
-    
-</body>
+<div>
+    <a href=""></a>
+</div>
 </html>
+
+<div> 
+    <ul>
+        <li>  </li>
+        <li></li>
+        <li></li>o
+
+</div>_$%^~@_#&$"*-':+=	
+<div>
+    <a href="index.php"></a>
+</div>

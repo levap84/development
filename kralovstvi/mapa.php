@@ -11,9 +11,7 @@ $mapa = array(
     array(
         '',
         '',
-        '<img src="pictures/les2.png">',
-        '',
-        ''
+        '<img      ''
     ),
     
     array(
