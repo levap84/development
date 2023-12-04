@@ -6,12 +6,10 @@
         $jmenaPole = explode(',', mb_strtolower($jmenaString));
         $jmenaPoleTrim = array();
         foreach($jmenaPole as $value)
-            $jmenaPoleTrim[] = trim($value);
-
+            $jmenaPoleTrim[] = trim($value, ' ');
         $nalez = array_search('waldo', $jmenaPoleTrim);
-        if ($nalez != FALSE)
+        if ($nalez !== FALSE)
             $hlaska = 'Našel jsem Walda na ' . $nalez + 1 . '. pozici';
-        echo($hlaska);
     }    
 
 
@@ -26,7 +24,7 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <?= (isset($hlaska)?$hlaska:'') ?>
 	<img src="pictures/waldo.jpg" alt="">
     <form method="post">
         <label for="jmena">Zadejte text oddělený čárkou</label>
